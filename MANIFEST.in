@@ -1,0 +1,18 @@
+include MANIFEST.in
+include requirements.txt
+include *.json
+include *.md
+include *.py
+include *.txt
+recursive-include nextweb *.css
+recursive-include nextweb *.csv
+recursive-include nextweb *.html
+recursive-include nextweb *.ico
+recursive-include nextweb *.js
+recursive-include nextweb *.json
+recursive-include nextweb *.md
+recursive-include nextweb *.png
+recursive-include nextweb *.py
+recursive-include nextweb *.svg
+recursive-include nextweb *.txt
+recursive-exclude nextweb *.pyc
