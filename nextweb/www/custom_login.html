@@ -1,0 +1,217 @@
+{% extends "templates/web.html" %}
+
+{% macro email_login_body() -%}
+<div class="page-card-body">
+	<div class="form-group">
+		<label class="form-label sr-only" for="login_email">{{ login_label or _("Email")}}</label>
+		<div class="email-field">
+			<input type="text" id="login_email" class="form-control" style="border-bottom:2px solid;height:100px;background:transparent;"
+				placeholder="{% if login_name_placeholder %}{{ login_name_placeholder  }}{% else %}{{ _('Username here') }}{% endif %}"
+				required autofocus>
+
+			
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label class="form-label sr-only" for="login_password">{{ _("Password") }}</label>
+		<div class="password-field">
+			<input type="password" id="login_password" class="form-control" placeholder="•••••"
+				autocomplete="current-password" required  style="border-bottom:2px solid;height:100px;background:transparent;">
+<br>
+			<span style="color:black;font-weight:bold; cursor: pointer;" toggle="#login_password" class="toggle-password text-muted"  >{{ _('Show') }}</span>
+		</div>
+	</div>
+	<p class="forgot-password-message">
+		<a href="#forgot">{{ _("Forgot Password?") }}</a></p>
+</div>
+<br><br>
+<div class="page-card-actions">
+	<button class="btn btn-sm btn-primary btn-block btn-login" style="background-color:rgb(0, 215, 187);border-radius:20px;padding:20px;font-size:x-large;" type="submit">
+		{{ _("Login") }}</button>
+
+	{% if ldap_settings and ldap_settings.enabled %}
+	<button class="btn btn-sm btn-default btn-block btn-login btn-ldap-login">
+		{{ _("Login with LDAP") }}</button>
+	{% endif %}
+</div>
+{% endmacro %}
+
+{% block head_include %}
+<!-- <link type="text/css" rel="stylesheet" href="/assets/css/login.css?ver={{ build_version }}"> -->
+{% endblock %}
+
+{% macro logo_section() %}
+<div class="page-card-head">
+	<!-- <img class="app-logo" src="{{ logo }}"> -->
+	<!-- <h4 style="font-size: 30px;font-weight:200;text-align:center;">{{ _('Login to {0}').format(app_name or _("Frappe")) }}</h4> -->
+    
+	<br>
+</div>
+{% endmacro %}
+
+{% block page_content %}
+<!-- {{ for_test }} -->
+<div>
+	<noscript>
+		<div class="text-center my-5">
+			<h4>{{ _("Javascript is disabled on your browser") }}</h4>
+			<p class="text-muted">
+				{{ _("You need to enable JavaScript for your app to work.") }}<br>{{ _("To enable it follow the instructions in the following link: {0}").format("<a href='https://enable-javascript.com/'>enable-javascript.com</a></p>") }}
+		</div>
+	</noscript>
+    <div class="container-fluid" style="margin-top:70px;" id="custom" >
+    <div class="row">
+        <div class="col-lg-6" >
+			{% set doc = frappe.get_doc("Website Builder") %}
+            <img style="width:100%; margin-left:auto;margin-right:auto;" src="{{doc.login_image}}">
+        </div>
+    <div class="col-lg-6">
+	<section>
+		<div class="login-content page-card">
+			{{ logo_section() }}
+			<form class="form-signin form-login" role="form">
+				<h4>Hey Welcome Back...!</h4>
+				{%- if social_login -%}
+				<div class="page-card-body">
+					<div class="social-logins text-center">
+						<div class="social-login-buttons">
+							{% for provider in provider_logins %}
+							<div class="login-button-wrapper">
+								<a href="{{ provider.auth_url }}"
+									class="btn btn-block btn-default btn-sm btn-login-option btn-{{ provider.name }}">
+									{% if provider.icon %}
+										{{ provider.icon }}
+									{% endif %}
+									{{ _("Login With {0}").format(provider.provider_name) }}</a>
+							</div>
+							{% endfor %}
+							<p class="text-muted login-divider">{{ _("or") }}</p>
+						</div>
+					</div>
+					<a href="#email"
+						class="btn btn-block btn-default btn-sm btn-login-option">
+					 {{ _("Login With Email") }}</a>
+				</div>
+				{% else %}
+					{{ email_login_body() }}
+				{%- endif -%}
+			</form>
+		</div>
+        <br><br>
+		{%- if not disable_signup -%}
+		<div class="text-center sign-up-message" style="font-size: 20px;">
+			{{ _("Don't have an account?") }}
+			<a href="#signup">{{ _("Sign up") }}</a>
+		</div>
+		{%- endif -%}
+	</section>
+</div>
+</div>
+</div>
+
+	{%- if social_login -%}
+	<section class='for-email-login'>
+		<div class="login-content page-card">
+			{{ logo_section() }}
+			<form class="form-signin form-login" role="form">
+			{{ email_login_body() }}
+			</form>
+		</div>
+		{%- if not disable_signup -%}
+		<div class="text-center sign-up-message">
+			{{ _("Don't have an account?") }}
+			<a href="#signup">{{ _("Sign up") }}</a>
+		</div>
+		{%- endif -%}
+	</section>
+	{%- endif -%}
+	
+    
+    
+    
+    <div class="container-fluid" style="margin-top:70px;" id="signup" >
+        <div class="row">
+            
+    <div class="col-lg-8" style="margin-left: auto; margin-right:auto;">
+    <section class='for-signup {{ "signup-disabled" if disable_signup else "" }}'>
+		<div class="login-content">
+			{{ logo_section() }}
+			{%- if not disable_signup -%}
+			<form class="form-signin form-signup hide" role="form">
+				<div class="page-card-body">
+					<div class="form-group">
+						<h4>Welcome, Sign Up Here</h4>
+						<label class="form-label sr-only" for="signup_fullname">Full Name</label>
+						<input type="text" id="signup_fullname" class="form-control" placeholder="{{ _('Jane Doe') }}"
+							required autofocus style="border-bottom:2px solid;height:100px;background:transparent;">
+					</div>
+					<div class="form-group">
+						<label class="form-label sr-only" for="signup_email">Email</label>
+						<input type="email" id="signup_email" class="form-control" 
+							placeholder="{{ _('jane@example.com') }}" required  style="border-bottom:2px solid;height:100px;background:transparent;">
+					</div>
+				</div>
+                <br><br>
+				<div class="page-card-actions">
+					<button class="btn btn-sm btn-primary btn-block btn-signup" style="background-color:rgb(0, 215, 187);border-radius:20px;padding:20px;font-size:x-large;"
+						type="submit">{{ _("Sign up") }}</button>
+
+					<p class="text-center sign-up-message">
+						<a  style="font-size: 20px;" href="#login" class="blue">{{ _("Have an account? Login") }}</a>
+					</p>
+				</div>
+			</form>
+			{%- else -%}
+			<div class='page-card-head mb-2'>
+				<span class='indicator gray'>{{_("Signup Disabled")}}</span>
+				<p class="text-muted text-normal sign-up-message mt-1 mb-8">{{_("Signups have been disabled for this website.")}}</p>
+				<div><a href='/' class='btn btn-primary btn-md'>{{ _("Home") }}</a></div>
+			</div>
+			{%- endif -%}
+		</div>
+	</section>
+</div>
+</div>
+</div>
+
+
+<div class="container-fluid" style="margin-top:70px;" id="signup" >
+	<div class="row">
+		
+<div class="col-lg-8" style="margin-left: auto; margin-right:auto;">
+	<section class='for-forgot'>
+		<div class="login-content">
+			<form class="form-signin form-forgot hide" role="form">
+				<div class="page-card-head">
+					<h4>{{ _('Forgot Password') }}</h4>
+				</div>
+				<div class="page-card-body">
+					<div class="email-field">
+						<input type="email" id="forgot_email" class="form-control" style="border-bottom:2px solid;height:100px;background:transparent;"
+							placeholder="{{ _('Email Address') }}" required autofocus >
+					</div>
+				</div>
+				<br><br>
+				<div class="page-card-actions">
+					<button class="btn btn-sm btn-primary btn-block btn-forgot" style="background-color:rgb(0, 215, 187);border-radius:20px;padding:20px;font-size:x-large;"
+						type="submit">{{ _("Reset Password") }}</button>
+					<p class="text-center sign-up-message">
+						<a href="#custom">{{ _("Back to Login") }}</a>
+					</p>
+				</div>
+
+			</form>
+		</div>
+	</section>
+</div>
+</div>
+</div>
+</div>
+{% endblock %}
+
+{% block script %}
+<script>{% include "templates/includes/login/login.js" %}</script>
+{% endblock %}
+
+{% block sidebar %}{% endblock %}
