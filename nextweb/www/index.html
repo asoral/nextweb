@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+
+<html lang="en">
+	
+	<head>
+		<meta charset="UTF-8">
+		<!-- For IE -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<!-- For Resposive Device -->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<!-- For Window Tab Color -->
+		<!-- Chrome, Firefox OS and Opera -->
+		<meta name="theme-color" content="#7034FF">
+		<!-- Windows Phone -->
+		<meta name="msapplication-navbutton-color" content="#7034FF">
+		<!-- Main style sheet -->
+		<link rel="stylesheet" type="text/css" href="assets/nextweb/css/style.css">
+		<!-- responsive style sheet -->
+		<link rel="stylesheet" type="text/css" href="assets/nextweb/css/responsive.css">
+		<style>
+		 #more {display: none; width: 50px;} 
+		 #myBtn{ color:blue;cursor: pointer;}
+		</style>
+
+	</head>
+	
+	<body  >
+		<div class="main-page-wrapper p0">
+			
+			
+			<!-- 
+			=============================================
+				Fancy Hero Seven
+			============================================== 
+			-->
+				
+		<div class="fancy-hero-seven">
+			{% set doc = frappe.get_doc("Website Builder") %}
+			<img src ="{{doc.hero_image}}" alt="#" style="z-index:-1;position:absolute;height:130%; width:100%; margin-top:-200px;"  />
+                                                        
+				<div class="container">
+					<div class="row">
+						<!-- {% set doc = frappe.get_doc("Website Builder") %} -->
+						<div class="col-xl-8 col-lg-10 m-auto" style="background-color:rgba(20, 7, 7, 0.207);border-radius:15px;padding:15px;" >
+							<h2 class="font-gordita" style="color: white;"> {{doc.company_name}} </h2>
+							<p class="font-gordita">{{doc.tagline}}</p>
+						</div>
+					</div>
+				</div>
+			</div> 
+			
+			
+			<!-- /.fancy-hero-seven -->
+			
+			<!-- <div class="container-fluid">
+				
+				<img style="width:100%;" src="assets/nextweb/images/media/img_109.png">
+			</div> -->
+			
+			
+			<!-- 
+			=============================================
+				Documentation
+			============================================== 
+			-->
+			
+			<div class="doc-container full-width top-border">
+				<div class="clearfix">
+					<div class="row flex-xl-nowrap no-gutters">
+						<!-- ****************************** DOC SIDEBAR ********************************* -->
+						<div class="col-lg-2 col-md-2 doc-sidebar">
+							<div class="clearfix">
+								<button class="btn btn-link d-md-none collapsed" type="button" data-target="#doc-sidebar-nav" aria-controls="doc-sidebar-nav" aria-expanded="false" aria-label="Toggle docs navigation"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" width="30" height="30" focusable="false"><title>Menu</title><path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" d="M4 7h22M4 15h22M4 23h22"></path></svg></button>
+							</div>
+							<nav class="doc-links collapse clearfix nav-fix" id="doc-sidebar-nav">
+								
+								<ul class="list-item">
+									{% for d in doc.description %}
+									<li class="dropdown-holder">
+										<h4>{{d.description_heading}}</h4>
+										<ul class="sub-menu show">
+											<li><p href="#" >{{d.description_details}}</p></li>
+										</ul>
+									</li>
+									{% endfor %}
+									
+								</ul>
+							</nav> <!-- /.doc-links -->
+						</div> <!-- /.doc-sidebar -->
+						
+						<!--cards here-->
+						    
+						
+		<!--
+			=====================================================
+				Feature Blog One
+			=====================================================
+			-->
+			<div class="col-lg-10 col-md-10">
+			<div class="feature-blog-one" style = "background-color:white; overflow-y:hidden;">
+				<div class="container-fluid">
+					<div class="row">
+						{% for p in doc.products %}
+						<div class="col-lg-3 col-md-4" data-aos="fade-up" data-aos-duration="1200">
+							<div class="post-meta card">
+								<img src="{{p.product_image}}" alt="product image here" onerror="this.src='assets/nextweb/images/blog/media_02.png'" class="image-meta" style="width:100%;">
+								<!-- <div class="tag">Technology</div> -->
+								<br>
+								<h3><p href="#" class="title"> {{p.product_name}} </p></h3>
+								<p>{{p.product_description}}</p>
+								<details>
+									<summary style="color:rgb(0, 166, 255)">Read more</summary>
+									<p>{{p.additional_description}}</p>
+								</details>
+							</div> 
+						</div>
+						{% endfor %}
+						
+						
+					</div>
+
+				<!--	<div class="text-center mt-30 md-mt-10" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="50"><a href="#" class="theme-btn-one">Show More</a></div>-->
+				<!--</div>-->
+			</div> <!-- /.feature-blog-one -->
+
+						
+						
+					</div>
+				</div>
+			</div>
+			</div> <!-- /.doc-container -->
+			</div>
+
+			
+			
+
+
+
+
+
+
+			<!-- Scroll Top Button -->
+			<button class="scroll-top">
+				<i class="fa fa-angle-up" aria-hidden="true"></i>
+			</button>
+
+
+		<!-- Optional JavaScript _____________________________  -->
+
+    	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    	<!-- jQuery -->
+		<script src="assets/nextweb/vendor/jquery.min.js"></script>
+		<!-- Popper js -->
+		<script src="assets/nextweb/vendor/popper.js/popper.min.js"></script>
+		<!-- Bootstrap JS -->
+		<script src="assets/nextweb/vendor/bootstrap/js/bootstrap.min.js"></script>
+	    <!-- menu  -->
+		<script src="assets/nextweb/vendor/mega-menu/assets/js/custom.js"></script>
+		<!-- AOS js -->
+		<script src="assets/nextweb/vendor/aos-next/dist/aos.js"></script>
+		<!-- js count to -->
+		<script src="assets/nextweb/vendor/jquery.appear.js"></script>
+		<script src="assets/nextweb/vendor/jquery.countTo.js"></script>
+		<!-- Fancybox -->
+		<script src="assets/nextweb/vendor/fancybox/dist/jquery.fancybox.min.js"></script>
+
+
+		<!-- Theme js -->
+		<script src="assets/nextweb/js/theme.js"></script>
+		<!-- <script src="assets/nextweb/js/custom.js"></script> -->
+		</div> <!-- /.main-page-wrapper -->
+		{% extends 'templates/menu.html' %}
+	</body>
+</html>

@@ -1,0 +1,73 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2022-08-22 16:29:12.322293",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "hero_image",
+  "company_name",
+  "tagline",
+  "description",
+  "products",
+  "login_image"
+ ],
+ "fields": [
+  {
+   "fieldname": "hero_image",
+   "fieldtype": "Attach Image",
+   "label": "Hero Image"
+  },
+  {
+   "fieldname": "company_name",
+   "fieldtype": "Data",
+   "label": "Company Name"
+  },
+  {
+   "fieldname": "tagline",
+   "fieldtype": "Data",
+   "label": "Tagline"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Table",
+   "label": "Sidebar",
+   "options": "Sidebar Table"
+  },
+  {
+   "fieldname": "products",
+   "fieldtype": "Table",
+   "label": "Products",
+   "options": "Product Table"
+  },
+  {
+   "description": "Illustrated Image/ Tranperent Background Image will look good.",
+   "fieldname": "login_image",
+   "fieldtype": "Attach Image",
+   "label": "Login Image"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "issingle": 1,
+ "links": [],
+ "modified": "2022-08-25 15:40:27.715986",
+ "modified_by": "Administrator",
+ "module": "nextwebsite",
+ "name": "Website Builder",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC"
+}

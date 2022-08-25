@@ -1,9 +1,9 @@
 from . import __version__ as app_version
 
 app_name = "nextweb"
-app_title = "nextwebsite"
-app_publisher = "nextwebsite"
-app_description = "nextwebsite"
+app_title = "nextweb"
+app_publisher = "nextweb"
+app_description = "nextweb"
 app_icon = "octicon octicon-file-directory"
 app_color = "grey"
 app_email = "nextweb@deciss.com"
@@ -40,7 +40,7 @@ app_license = "MIT"
 # ----------
 
 # application home page (will override Website Settings)
-# home_page = "login"
+home_page = "index"
 
 # website user home page (by Role)
 # role_home_page = {
