@@ -6337,7 +6337,7 @@ body .theme-btn-fourteen:hover {background: #6F6CFF;}
 /*=======================================================================
                               Event               
 =========================================================================*/
-.theme-main-menu.sticky-menu.fixed.theme-menu-four {background:floralwhite;}
+.theme-main-menu.sticky-menu.fixed.theme-menu-four {background:white;}
 .theme-menu-four .logo img {max-width: 120px;}
 .theme-menu-four .navbar-nav .nav-item .nav-link {
   font-family: 'Roboto', sans-serif;
@@ -6353,11 +6353,11 @@ body .theme-btn-fourteen:hover {background: #6F6CFF;}
   transition: all 0.3s ease-in-out;
 }
 .theme-menu-four .right-button-group .signIn-action:hover {color: var(--vin-red);}
-.theme-menu-four .right-button-group {margin-left: 100px;}
+.theme-menu-four .right-button-group {margin-left:0px;}
 /*---------------------- Theme Hero Banner/Four ---------------*/
 .hero-banner-four {
   position: relative;
-  background: #FBF3EC;
+  background: white;
   padding: 250px 0 110px;
   z-index: 1;
 }

@@ -1,217 +1,436 @@
-{% extends "templates/web.html" %}
+<!DOCTYPE html>
 
-{% macro email_login_body() -%}
-<div class="page-card-body">
-	<div class="form-group">
-		<label class="form-label sr-only" for="login_email">{{ login_label or _("Email")}}</label>
-		<div class="email-field">
-			<input type="text" id="login_email" class="form-control" style="border-bottom:2px solid;height:100px;background:transparent;"
-				placeholder="{% if login_name_placeholder %}{{ login_name_placeholder  }}{% else %}{{ _('Username here') }}{% endif %}"
-				required autofocus>
-
-			
-		</div>
-	</div>
-
-	<div class="form-group">
-		<label class="form-label sr-only" for="login_password">{{ _("Password") }}</label>
-		<div class="password-field">
-			<input type="password" id="login_password" class="form-control" placeholder="•••••"
-				autocomplete="current-password" required  style="border-bottom:2px solid;height:100px;background:transparent;">
-<br>
-			<span style="color:black;font-weight:bold; cursor: pointer;" toggle="#login_password" class="toggle-password text-muted"  >{{ _('Show') }}</span>
-		</div>
-	</div>
-	<p class="forgot-password-message">
-		<a href="#forgot">{{ _("Forgot Password?") }}</a></p>
-</div>
-<br><br>
-<div class="page-card-actions">
-	<button class="btn btn-sm btn-primary btn-block btn-login" style="background-color:rgb(0, 215, 187);border-radius:20px;padding:20px;font-size:x-large;" type="submit">
-		{{ _("Login") }}</button>
-
-	{% if ldap_settings and ldap_settings.enabled %}
-	<button class="btn btn-sm btn-default btn-block btn-login btn-ldap-login">
-		{{ _("Login with LDAP") }}</button>
-	{% endif %}
-</div>
-{% endmacro %}
-
-{% block head_include %}
-<!-- <link type="text/css" rel="stylesheet" href="/assets/css/login.css?ver={{ build_version }}"> -->
-{% endblock %}
-
-{% macro logo_section() %}
-<div class="page-card-head">
-	<!-- <img class="app-logo" src="{{ logo }}"> -->
-	<!-- <h4 style="font-size: 30px;font-weight:200;text-align:center;">{{ _('Login to {0}').format(app_name or _("Frappe")) }}</h4> -->
-    
-	<br>
-</div>
-{% endmacro %}
-
-{% block page_content %}
-<!-- {{ for_test }} -->
-<div>
-	<noscript>
-		<div class="text-center my-5">
-			<h4>{{ _("Javascript is disabled on your browser") }}</h4>
-			<p class="text-muted">
-				{{ _("You need to enable JavaScript for your app to work.") }}<br>{{ _("To enable it follow the instructions in the following link: {0}").format("<a href='https://enable-javascript.com/'>enable-javascript.com</a></p>") }}
-		</div>
-	</noscript>
-    <div class="container-fluid" style="margin-top:70px;" id="custom" >
-    <div class="row">
-        <div class="col-lg-6" >
-			{% set doc = frappe.get_doc("Website Builder") %}
-            <img style="width:100%; margin-left:auto;margin-right:auto;" src="{{doc.login_image}}">
-        </div>
-    <div class="col-lg-6">
-	<section>
-		<div class="login-content page-card">
-			{{ logo_section() }}
-			<form class="form-signin form-login" role="form">
-				<h4>Hey Welcome Back...!</h4>
-				{%- if social_login -%}
-				<div class="page-card-body">
-					<div class="social-logins text-center">
-						<div class="social-login-buttons">
-							{% for provider in provider_logins %}
-							<div class="login-button-wrapper">
-								<a href="{{ provider.auth_url }}"
-									class="btn btn-block btn-default btn-sm btn-login-option btn-{{ provider.name }}">
-									{% if provider.icon %}
-										{{ provider.icon }}
-									{% endif %}
-									{{ _("Login With {0}").format(provider.provider_name) }}</a>
-							</div>
-							{% endfor %}
-							<p class="text-muted login-divider">{{ _("or") }}</p>
-						</div>
-					</div>
-					<a href="#email"
-						class="btn btn-block btn-default btn-sm btn-login-option">
-					 {{ _("Login With Email") }}</a>
-				</div>
-				{% else %}
-					{{ email_login_body() }}
-				{%- endif -%}
-			</form>
-		</div>
-        <br><br>
-		{%- if not disable_signup -%}
-		<div class="text-center sign-up-message" style="font-size: 20px;">
-			{{ _("Don't have an account?") }}
-			<a href="#signup">{{ _("Sign up") }}</a>
-		</div>
-		{%- endif -%}
-	</section>
-</div>
-</div>
-</div>
-
-	{%- if social_login -%}
-	<section class='for-email-login'>
-		<div class="login-content page-card">
-			{{ logo_section() }}
-			<form class="form-signin form-login" role="form">
-			{{ email_login_body() }}
-			</form>
-		</div>
-		{%- if not disable_signup -%}
-		<div class="text-center sign-up-message">
-			{{ _("Don't have an account?") }}
-			<a href="#signup">{{ _("Sign up") }}</a>
-		</div>
-		{%- endif -%}
-	</section>
-	{%- endif -%}
+<html lang="en">
 	
-    
-    
-    
-    <div class="container-fluid" style="margin-top:70px;" id="signup" >
-        <div class="row">
-            
-    <div class="col-lg-8" style="margin-left: auto; margin-right:auto;">
-    <section class='for-signup {{ "signup-disabled" if disable_signup else "" }}'>
-		<div class="login-content">
-			{{ logo_section() }}
-			{%- if not disable_signup -%}
-			<form class="form-signin form-signup hide" role="form">
-				<div class="page-card-body">
-					<div class="form-group">
-						<h4>Welcome, Sign Up Here</h4>
-						<label class="form-label sr-only" for="signup_fullname">Full Name</label>
-						<input type="text" id="signup_fullname" class="form-control" placeholder="{{ _('Jane Doe') }}"
-							required autofocus style="border-bottom:2px solid;height:100px;background:transparent;">
-					</div>
-					<div class="form-group">
-						<label class="form-label sr-only" for="signup_email">Email</label>
-						<input type="email" id="signup_email" class="form-control" 
-							placeholder="{{ _('jane@example.com') }}" required  style="border-bottom:2px solid;height:100px;background:transparent;">
-					</div>
-				</div>
-                <br><br>
-				<div class="page-card-actions">
-					<button class="btn btn-sm btn-primary btn-block btn-signup" style="background-color:rgb(0, 215, 187);border-radius:20px;padding:20px;font-size:x-large;"
-						type="submit">{{ _("Sign up") }}</button>
+	<head>
+		<meta charset="UTF-8">
+		<!-- For IE -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<!-- For Resposive Device -->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<!-- For Window Tab Color -->
+		<!-- Chrome, Firefox OS and Opera -->
+		<meta name="theme-color" content="#7034FF">
+		<!-- Windows Phone -->
+		<meta name="msapplication-navbutton-color" content="#7034FF">
+		<!-- Main style sheet -->
+		<link rel="stylesheet" type="text/css" href="assets/nextweb/css/style.css">
+		<!-- responsive style sheet -->
+		<link rel="stylesheet" type="text/css" href="assets/nextweb/css/responsive.css">
+		<style>
+		 #more {display: none; width: 50px;} 
+		 #myBtn{ color:blue;cursor: pointer;}
+		</style>
 
-					<p class="text-center sign-up-message">
-						<a  style="font-size: 20px;" href="#login" class="blue">{{ _("Have an account? Login") }}</a>
-					</p>
-				</div>
-			</form>
-			{%- else -%}
-			<div class='page-card-head mb-2'>
-				<span class='indicator gray'>{{_("Signup Disabled")}}</span>
-				<p class="text-muted text-normal sign-up-message mt-1 mb-8">{{_("Signups have been disabled for this website.")}}</p>
-				<div><a href='/' class='btn btn-primary btn-md'>{{ _("Home") }}</a></div>
-			</div>
-			{%- endif -%}
-		</div>
-	</section>
-</div>
-</div>
-</div>
-
-
-<div class="container-fluid" style="margin-top:70px;" id="signup" >
-	<div class="row">
+	</head>
+	<body>
 		
-<div class="col-lg-8" style="margin-left: auto; margin-right:auto;">
-	<section class='for-forgot'>
-		<div class="login-content">
-			<form class="form-signin form-forgot hide" role="form">
-				<div class="page-card-head">
-					<h4>{{ _('Forgot Password') }}</h4>
-				</div>
-				<div class="page-card-body">
-					<div class="email-field">
-						<input type="email" id="forgot_email" class="form-control" style="border-bottom:2px solid;height:100px;background:transparent;"
-							placeholder="{{ _('Email Address') }}" required autofocus >
-					</div>
-				</div>
-				<br><br>
-				<div class="page-card-actions">
-					<button class="btn btn-sm btn-primary btn-block btn-forgot" style="background-color:rgb(0, 215, 187);border-radius:20px;padding:20px;font-size:x-large;"
-						type="submit">{{ _("Reset Password") }}</button>
-					<p class="text-center sign-up-message">
-						<a href="#custom">{{ _("Back to Login") }}</a>
-					</p>
-				</div>
+		<div class="container-fluid ">
+			<div>
+				<!-- 
+				   =============================================
+					   Theme Main Menu
+				   ============================================== 
+				   -->
+				   <div class="theme-main-menu sticky-menu theme-menu-four" style="background-color: white;height:120px;">
+                    <div class="d-flex align-items-center justify-content-between">
+                        <div class="logo"><a href=""><img src="" alt=""></a></div>
+                        <nav id="mega-menu-holder" class="navbar navbar-expand-lg">
+                            <div  class="container nav-container">
+                                <button class="navbar-toggler">
+                                    <span></span>
+                                </button>
+                               <div class="navbar-collapse collapse" id="navbarSupportedContent">
+                                       <div class="d-lg-flex align-items-center">
+                                           <ul class="navbar-nav">
+                                               <li class="nav-item dropdown position-static active">
+                                                <a class="nav-link" href="http://localhost:3000/">Home</a>
+                                            </li>
+                                            <li class="nav-item dropdown">
+                                                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Products</a>
+                                                <ul class="dropdown-menu">
+                                                    <li>
+                                                        <a href="" class="dropdown-item">Product 1</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="" class="dropdown-item">Product 2</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="" class="dropdown-item">Product 3</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="" class="dropdown-item">Product 4</a>
+                                                    </li>
+                                                    
+                                                </ul> <!-- /.dropdown-menu -->
+                                            </li>
+    
+    
+    
+                                            <li class="nav-item dropdown">
+                                                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Support</a>
+                                                <ul class="dropdown-menu">
+                                                    <li>
+                                                        <a href="#" class="dropdown-item">Sub-Element 1</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#" class="dropdown-item">Sub-Element 2</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#" class="dropdown-item">Sub-Element 3</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#" class="dropdown-item">Sub-Element 4</a>
+                                                    </li>
+                                                    
+                                                </ul> <!-- /.dropdown-menu -->
+                                            </li>
+                                            
+    
+    
+    
+                                            <li class="nav-item dropdown">
+                                                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">career</a>
+                                                <ul class="dropdown-menu">
+                                                    <li>
+                                                        <a href="#" class="dropdown-item">Sub-Element 1</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#" class="dropdown-item">Sub-Element 2</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#" class="dropdown-item">Sub-Element 3</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#" class="dropdown-item">Sub-Element 4</a>
+                                                    </li>
+                                                    
+                                                </ul> <!-- /.dropdown-menu -->
+                                            </li>
+    
+    
+    
+                                            <li class="nav-item dropdown">
+                                                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Contact Us</a>
+                                                <ul class="dropdown-menu">
+                                                    <li>
+                                                        <a href="#" class="dropdown-item">Sub-Element 1</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#" class="dropdown-item">Sub-Element 2</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#" class="dropdown-item">Sub-Element 3</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#" class="dropdown-item">Sub-Element 4</a>
+                                                    </li>
+                                                    
+                                                </ul> <!-- /.dropdown-menu -->
+                                            </li>
+                                       </ul>
+                                           <!-- <ul class="right-button-group d-flex align-items-center justify-content-center" style="margin-left:0px;">
+                                               <li style="background-color:rgb(0, 149, 255); height: 60px;width: 200px;border-radius: 15px;margin-top:10px ;">
+                                                <a href="http://localhost:3000/custom_login#custom" class="signIn-action" style="text-align: center;padding-left:70px;;">Login</a>
+                                            </li>
+                                            
+                                        </ul>
+                                        <ul class="right-button-group d-flex align-items-center justify-content-center" style="margin-left:50px;">
+                                         <li style="background-color:rgb(0, 149, 255); height: 60px;width: 200px;border-radius: 15px;margin-top:10px;margin-left: -20px;">
+                                          <a href="http://localhost:3000/custom_login#signup" class="signIn-action" style="text-align: center;padding-left:70px;;">Sign Up</a>
+                                       </li>
+                                      
+                                        </ul> -->
+                                    
+                                       </div>
+                                   </div>
+                            </div> 
+                        </nav>
+                    </div>
+                </div> <!-- /.theme-main-menu -->
 
-			</form>
-		</div>
-	</section>
-</div>
-</div>
-</div>
-</div>
-{% endblock %}
 
-{% block script %}
-<script>{% include "templates/includes/login/login.js" %}</script>
-{% endblock %}
+<br><br><br>
 
-{% block sidebar %}{% endblock %}
+
+                   
+
+{% extends "templates/web.html" %}
+                   {% macro email_login_body() -%}
+                   
+                   <div class="page-card-body">
+                       <div class="form-group">
+                           <label class="form-label sr-only" for="login_email">{{ login_label or _("Email")}}</label>
+                           <div class="email-field">
+                               <input type="text" id="login_email" class="form-control"
+                                   placeholder="{% if login_name_placeholder %}{{ login_name_placeholder  }}{% else %}{{ _('jane@example.com') }}{% endif %}"
+                                   required autofocus>
+                   
+                               
+                           </div>
+                       </div>
+                   
+                       <div class="form-group">
+                           <label class="form-label sr-only" for="login_password">{{ _("Password") }}</label>
+                           <div class="password-field">
+                               <input type="password" id="login_password" class="form-control" placeholder="•••••"
+                                   autocomplete="current-password" required>
+                   
+                               <span toggle="#login_password" class="toggle-password text-muted">{{ _('Show') }}</span>
+                           </div>
+                       </div>
+                   
+                       <p class="forgot-password-message">
+                           <a href="#forgot">{{ _("Forgot Password?") }}</a></p>
+                   </div>
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   <div class="page-card-actions">
+                       <button class="btn btn-sm btn-primary btn-block btn-login" type="submit">
+                           {{ _("Login") }}</button>
+                   
+                       {% if ldap_settings and ldap_settings.enabled %}
+                       <button class="btn btn-sm btn-default btn-block btn-login btn-ldap-login">
+                           {{ _("Login with LDAP") }}</button>
+                       {% endif %}
+                   </div>
+                   {% endmacro %}
+                   
+                   {% block head_include %}
+                   <link type="text/css" rel="stylesheet" href="/assets/css/login.css?ver={{ build_version }}">
+                   {% endblock %}
+                   
+                   {% macro logo_section() %}
+                   <div class="page-card-head">
+                       <!-- <img class="app-logo" src="{{ logo }}"> -->
+                       <h4>{{ _('Login to {0}').format(app_name or _("Frappe")) }}</h4>
+                   </div>
+                   {% endmacro %}
+                   
+                   {% block page_content %}
+                   <!-- {{ for_test }} -->
+                   <div>
+                       <noscript>
+                           <div class="text-center my-5">
+                               <h4>{{ _("Javascript is disabled on your browser") }}</h4>
+                               <p class="text-muted">
+                                   {{ _("You need to enable JavaScript for your app to work.") }}<br>{{ _("To enable it follow the instructions in the following link: {0}").format("<a href='https://enable-javascript.com/'>enable-javascript.com</a></p>") }}
+                           </div>
+                       </noscript>
+                   
+                       <section class='for-login'>
+                           <div class="row">
+                               <div class="col-lg-5">
+                                   {% set doc = frappe.get_doc("Website Builder") %}
+                           <img src="{{doc.login_image}}" alt="image here" style="margin-top:-50px;" >
+                               </div>
+                               <div class="col-lg-2">
+                                </div>
+                           
+                           <div class="col-lg-5">
+                           <div class="login-content page-card">
+                               {{ logo_section() }}
+                               <form class="form-signin form-login" role="form">
+                                   {%- if social_login -%}
+                                   <div class="page-card-body">
+                                       <div class="social-logins text-center">
+                                           <div class="social-login-buttons">
+                                               {% for provider in provider_logins %}
+                                               <div class="login-button-wrapper">
+                                                   <a href="{{ provider.auth_url }}"
+                                                       class="btn btn-block btn-default btn-sm btn-login-option btn-{{ provider.name }}">
+                                                       {% if provider.icon %}
+                                                           {{ provider.icon }}
+                                                       {% endif %}
+                                                       {{ _("Login With {0}").format(provider.provider_name) }}</a>
+                                               </div>
+                                               {% endfor %}
+                                               <p class="text-muted login-divider">{{ _("or") }}</p>
+                                           </div>
+                                       </div>
+                                       <a href="#email"
+                                           class="btn btn-block btn-default btn-sm btn-login-option">
+                                        {{ _("Login With Email") }}</a>
+                                   </div>
+                                   {% else %}
+                                       {{ email_login_body() }}
+                                   {%- endif -%}
+                               </form>
+                           </div>
+                           {%- if not disable_signup -%}
+                           <div class="text-center sign-up-message">
+                               {{ _("Don't have an account?") }}
+                               <a href="#signup">{{ _("Sign up") }}</a>
+                           </div>
+                           {%- endif -%}
+                       </div>
+                   </div>
+                       </section>
+                   
+                   
+                       {%- if social_login -%}
+                       <section class='for-email-login'>
+                           <div class="login-content page-card">
+                               {{ logo_section() }}
+                               <form class="form-signin form-login" role="form">
+                               {{ email_login_body() }}
+                               </form>
+                           </div>
+                           {%- if not disable_signup -%}
+                           <div class="text-center sign-up-message">
+                               {{ _("Don't have an account?") }}
+                               <a href="#signup">{{ _("Sign up") }}</a>
+                           </div>
+                           {%- endif -%}
+                       </section>
+                       {%- endif -%}
+                   
+                   
+                       
+                       <section class='for-signup {{ "signup-disabled" if disable_signup else "" }}'>
+                           <div class="row">
+                               <div class="col-lg-5">
+                                   {% set doc = frappe.get_doc("Website Builder") %}
+                           <img src="{{doc.signup_image}}" alt="image here" style="margin-top:-50px;" >
+                               </div>
+                   
+                               <div class="col-lg-2">
+                            </div>
+                           <div class="col-lg-5">
+                           <div class="login-content page-card">
+                               {{ logo_section() }}
+                               {%- if not disable_signup -%}
+                               <form class="form-signin form-signup hide" role="form">
+                                   <div class="page-card-body">
+                                       <div class="form-group">
+                                           <label class="form-label sr-only" for="signup_fullname">Full Name</label>
+                                           <input type="text" id="signup_fullname" class="form-control" placeholder="{{ _('Jane Doe') }}"
+                                               required autofocus>
+                                       </div>
+                                       <div class="form-group">
+                                           <label class="form-label sr-only" for="signup_email">Email</label>
+                                           <input type="email" id="signup_email" class="form-control"
+                                               placeholder="{{ _('jane@example.com') }}" required>
+                                       </div>
+                                   </div>
+                                   <div class="page-card-actions">
+                                       <button class="btn btn-sm btn-primary btn-block btn-signup"
+                                           type="submit">{{ _("Sign up") }}</button>
+                   
+                                       <p class="text-center sign-up-message">
+                                           <a href="#login" class="blue">{{ _("Have an account? Login") }}</a>
+                                       </p>
+                                   </div>
+                               </form>
+                               {%- else -%}
+                               <div class='page-card-head mb-2'>
+                                   <span class='indicator gray'>{{_("Signup Disabled")}}</span>
+                                   <p class="text-muted text-normal sign-up-message mt-1 mb-8">{{_("Signups have been disabled for this website.")}}</p>
+                                   <div><a href='/' class='btn btn-primary btn-md'>{{ _("Home") }}</a></div>
+                               </div>
+                               {%- endif -%}
+                           </div>
+                       </div>
+                   </div>
+                       </section>
+                       
+                   
+                   
+                   
+                       
+                       <section class='for-forgot'>
+                           <div class="row">
+                               <div class="col-lg-5">
+                                   {% set doc = frappe.get_doc("Website Builder") %}
+                                   <img src="{{doc.forgot_image}}" alt="image here" style="margin-top:0px;" >
+                                       
+                               </div>
+                               <div class="col-lg-2">
+                            </div>
+                           <div class="col-lg-5">
+                           <div class="login-content page-card">
+                               <form class="form-signin form-forgot hide" role="form">
+                                   <div class="page-card-head">
+                                       <h4>{{ _('Forgot Password') }}</h4>
+                                   </div>
+                                   <div class="page-card-body">
+                                       <div class="email-field">
+                                           <input type="email" id="forgot_email" class="form-control"
+                                               placeholder="{{ _('Email Address') }}" required autofocus>
+                                           <svg class="field-icon email-icon" width="20" height="20" viewBox="0 0 20 20" fill="none"
+                                               xmlns="http://www.w3.org/2000/svg">
+                                               <path
+                                                   d="M2.5 7.65149V15.0757C2.5 15.4374 2.64367 15.7842 2.8994 16.04C3.15513 16.2957 3.50198 16.4394 3.86364 16.4394H16.1364C16.498 16.4394 16.8449 16.2957 17.1006 16.04C17.3563 15.7842 17.5 15.4374 17.5 15.0757V7.65149"
+                                                   stroke="#74808B" stroke-miterlimit="10" stroke-linecap="square" />
+                                               <path
+                                                   d="M17.5 7.57572V5.53026C17.5 5.1686 17.3563 4.82176 17.1006 4.56603C16.8449 4.31029 16.498 4.16663 16.1364 4.16663H3.86364C3.50198 4.16663 3.15513 4.31029 2.8994 4.56603C2.64367 4.82176 2.5 5.1686 2.5 5.53026V7.57572L10 10.8333L17.5 7.57572Z"
+                                                   stroke="#74808B" stroke-miterlimit="10" stroke-linecap="square" />
+                                           </svg>
+                   
+                                       </div>
+                                   </div>
+                                   <div class="page-card-actions">
+                                       <button class="btn btn-sm btn-primary btn-block btn-forgot"
+                                           type="submit">{{ _("Reset Password") }}</button>
+                                       <p class="text-center sign-up-message">
+                                           <a href="#login">{{ _("Back to Login") }}</a>
+                                       </p>
+                                   </div>
+                   
+                               </form>
+                           </div>
+                       </div>
+                   </div>
+                       </section>
+                       
+                   
+                       
+                   </div>
+                   {% endblock %}
+                   
+                   {% block script %}
+                   <script>{% include "templates/includes/login/login.js" %}</script>
+                   {% endblock %}
+                   
+                   {% block sidebar %}{% endblock %}
+                   
+
+
+
+
+
+		<!-- Optional JavaScript _____________________________  -->
+
+    	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    	<!-- jQuery -->
+		<script src="assets/nextweb/vendor/jquery.min.js"></script>
+		<!-- Popper js -->
+		<script src="assets/nextweb/vendor/popper.js/popper.min.js"></script>
+		<!-- Bootstrap JS -->
+		<script src="assets/nextweb/vendor/bootstrap/js/bootstrap.min.js"></script>
+	    <!-- menu  -->
+		<script src="assets/nextweb/vendor/mega-menu/assets/js/custom.js"></script>
+		<!-- AOS js -->
+		<script src="assets/nextweb/vendor/aos-next/dist/aos.js"></script>
+		<!-- js count to -->
+		<script src="assets/nextweb/vendor/jquery.appear.js"></script>
+		<script src="assets/nextweb/vendor/jquery.countTo.js"></script>
+		<!-- Fancybox -->
+		<script src="assets/nextweb/vendor/fancybox/dist/jquery.fancybox.min.js"></script>
+
+
+		<!-- Theme js -->
+		<script src="assets/nextweb/js/theme.js"></script>
+		<!-- <script src="assets/nextweb/js/custom.js"></script> -->
+		</div> <!-- /.main-page-wrapper -->
+		
+		
+		
+	</body>
+	
+</html>

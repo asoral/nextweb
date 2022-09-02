@@ -11,7 +11,9 @@
   "tagline",
   "description",
   "products",
-  "login_image"
+  "login_image",
+  "signup_image",
+  "forgot_image"
  ],
  "fields": [
   {
@@ -46,12 +48,22 @@
    "fieldname": "login_image",
    "fieldtype": "Attach Image",
    "label": "Login Image"
+  },
+  {
+   "fieldname": "signup_image",
+   "fieldtype": "Attach Image",
+   "label": "Signup Image"
+  },
+  {
+   "fieldname": "forgot_image",
+   "fieldtype": "Attach Image",
+   "label": "Forgot Image"
   }
  ],
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2022-08-25 15:40:27.715986",
+ "modified": "2022-08-30 17:45:05.987841",
  "modified_by": "Administrator",
  "module": "nextwebsite",
  "name": "Website Builder",

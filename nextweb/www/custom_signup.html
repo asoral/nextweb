@@ -1,0 +1,45 @@
+<div class="container-fluid" style="margin-top:200px;" id="signup" >
+	
+    <div class="row">
+        
+<div class="col-lg-8" style="margin-left: auto; margin-right:auto;">
+<section class='for-signup {{ "signup-disabled" if disable_signup else "" }}'>
+    <div class="login-content">
+        {{ logo_section() }}
+        {%- if not disable_signup -%}
+        <form class="form-signin form-signup hide" role="form">
+            <div class="page-card-body">
+                <div class="form-group">
+                    <h4>Welcome, Sign Up Here</h4>
+                    <label class="form-label sr-only" for="signup_fullname">Full Name</label>
+                    <input type="text" id="signup_fullname" class="form-control" placeholder="{{ _('Jane Doe') }}"
+                        required autofocus style="border-bottom:2px solid;height:100px;background:transparent;">
+                </div>
+                <div class="form-group">
+                    <label class="form-label sr-only" for="signup_email">Email</label>
+                    <input type="email" id="signup_email" class="form-control" 
+                        placeholder="{{ _('jane@example.com') }}" required  style="border-bottom:2px solid;height:100px;background:transparent;">
+                </div>
+            </div>
+            <br><br>
+            <div class="page-card-actions">
+                <button class="btn btn-sm btn-primary btn-block btn-signup" style="background-color:rgb(0, 215, 187);border-radius:20px;padding:20px;font-size:x-large;"
+                    type="submit">{{ _("Sign up") }}</button>
+
+                <p class="text-center sign-up-message">
+                    <a  style="font-size: 20px;" href="#login" class="blue">{{ _("Have an account? Login") }}</a>
+                </p>
+            </div>
+        </form>
+        {%- else -%}
+        <div class='page-card-head mb-2'>
+            <span class='indicator gray'>{{_("Signup Disabled")}}</span>
+            <p class="text-muted text-normal sign-up-message mt-1 mb-8">{{_("Signups have been disabled for this website.")}}</p>
+            <div><a href='/' class='btn btn-primary btn-md'>{{ _("Home") }}</a></div>
+        </div>
+        {%- endif -%}
+    </div>
+</section>
+</div>
+</div>
+</div>
