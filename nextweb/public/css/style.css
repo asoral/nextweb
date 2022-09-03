@@ -278,7 +278,7 @@
   background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.25) 0%, rgba(0, 0, 0, 0) 80%);
 }
 /*------------- Global Prefix -------------------*/
-::-webkit-scrollbar{ width: 7px; }
+::-webkit-scrollbar{ width: 5px; }
 ::-webkit-scrollbar-track { background: #fff;}
 ::-webkit-scrollbar-thumb { background: var(--text-color);border-radius: 0;}
 :root {
@@ -6143,7 +6143,7 @@ body .theme-btn-fourteen:hover {background: #6F6CFF;}
 .doc-sidebar .search-form form button img {margin: 0 auto;}
 #doc-sidebar-nav {
   max-height: 100vh; 
-  overflow-y: auto; 
+  overflow-y: hidden; 
   padding-right: 45px;
 }
 .doc-sidebar .list-item>li {
@@ -8150,7 +8150,7 @@ body .theme-btn-fourteen:hover {background: #6F6CFF;}
   padding: 70px 75px;
   margin-top: 85px;
   position: relative;
-  overflow: visible;
+  overflow: hidden;
 }
 #productScreenSlider .carousel-item {
   opacity: 0;
