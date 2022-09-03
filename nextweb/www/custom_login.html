@@ -32,9 +32,11 @@
 					   Theme Main Menu
 				   ============================================== 
 				   -->
-				   <div class="theme-main-menu sticky-menu theme-menu-four" style="background-color: white;height:120px;">
+				   <div class="theme-main-menu sticky-menu theme-menu-four" style="background-color: white;">
                     <div class="d-flex align-items-center justify-content-between">
-                        <div class="logo"><a href=""><img src="" alt=""></a></div>
+                        <div class="logo">
+                         {% set doc = frappe.get_doc("Website Builder") %}
+                         <a href=""><img src="{{doc.company_logo}}" alt=""></a></div>
                         <nav id="mega-menu-holder" class="navbar navbar-expand-lg">
                             <div  class="container nav-container">
                                 <button class="navbar-toggler">
@@ -43,93 +45,45 @@
                                <div class="navbar-collapse collapse" id="navbarSupportedContent">
                                        <div class="d-lg-flex align-items-center">
                                            <ul class="navbar-nav">
-                                               <li class="nav-item dropdown position-static active">
-                                                <a class="nav-link" href="">Home</a>
-                                            </li>
+                                               
                                             <li class="nav-item dropdown">
-                                                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Products</a>
+                                                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" style="color:#326799;"><b>BUY EQUIPMENTS</b></a>
                                                 <ul class="dropdown-menu">
                                                     <li>
-                                                        <a href="" class="dropdown-item">Product 1</a>
+                                                        <a href="" class="dropdown-item" style="color:black;">Product 1</a>
                                                     </li>
                                                     <li>
-                                                        <a href="" class="dropdown-item">Product 2</a>
+                                                        <a href="" class="dropdown-item" style="color:black;">Product 2</a>
                                                     </li>
                                                     <li>
-                                                        <a href="" class="dropdown-item">Product 3</a>
+                                                        <a href="" class="dropdown-item" style="color:black;">Product 3</a>
                                                     </li>
                                                     <li>
-                                                        <a href="" class="dropdown-item">Product 4</a>
+                                                        <a href="" class="dropdown-item" style="color:black;">Product 4</a>
                                                     </li>
                                                     
                                                 </ul> <!-- /.dropdown-menu -->
                                             </li>
     
-    
-    
                                             <li class="nav-item dropdown">
-                                                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Support</a>
-                                                <ul class="dropdown-menu">
-                                                    <li>
-                                                        <a href="#" class="dropdown-item">Sub-Element 1</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#" class="dropdown-item">Sub-Element 2</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#" class="dropdown-item">Sub-Element 3</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#" class="dropdown-item">Sub-Element 4</a>
-                                                    </li>
-                                                    
-                                                </ul> <!-- /.dropdown-menu -->
-                                            </li>
-                                            
-    
-    
-    
-                                            <li class="nav-item dropdown">
-                                                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">career</a>
-                                                <ul class="dropdown-menu">
-                                                    <li>
-                                                        <a href="#" class="dropdown-item">Sub-Element 1</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#" class="dropdown-item">Sub-Element 2</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#" class="dropdown-item">Sub-Element 3</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#" class="dropdown-item">Sub-Element 4</a>
-                                                    </li>
-                                                    
-                                                </ul> <!-- /.dropdown-menu -->
-                                            </li>
-    
-    
-    
-                                            <li class="nav-item dropdown">
-                                                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Contact Us</a>
-                                                <ul class="dropdown-menu">
-                                                    <li>
-                                                        <a href="#" class="dropdown-item">Sub-Element 1</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#" class="dropdown-item">Sub-Element 2</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#" class="dropdown-item">Sub-Element 3</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#" class="dropdown-item">Sub-Element 4</a>
-                                                    </li>
-                                                    
-                                                </ul> <!-- /.dropdown-menu -->
-                                            </li>
+                                                <a class="nav-link" href="#" style="color:#326799;" ><b>OUR PLATFORM</b></a>
+                                                
+                                            </li>	   
                                        </ul>
-                                          
+                                           <ul class="right-button-group d-flex align-items-center justify-content-center" style="margin-left: 30px;">
+                                               <li style="background-color:#326799; height: 60px;width: 200px;border-radius: 30px;">
+                                                <a href="custom_login#custom" class="signIn-action" style="text-align: center;padding-left:70px;margin-top:10px;color: white;">Login</a>
+                                            </li>
+                                      </ul>
+                                      <ul class="right-button-group d-flex align-items-center justify-content-center">
+                                         <li style="margin-right: 20px;" ></li>
+                                     </ul>
+                                        <ul class="right-button-group d-flex align-items-center justify-content-center">
+                                         <li style="background-color:#326799; height: 60px;width: 200px;border-radius: 30px;margin-right: 20px;">
+                                          <a href="custom_login#signup" class="signIn-action" style="text-align: center;padding-left:70px;margin-top:10px;color: white; ">Sign Up</a>
+                                       </li>
+                                      
+                                        </ul>
                                     
                                        </div>
                                    </div>
@@ -138,8 +92,7 @@
                     </div>
                 </div> <!-- /.theme-main-menu -->
 
-
-<br><br><br>
+<br>
 
 
                    
@@ -153,7 +106,7 @@
                            <div class="email-field">
                                <input type="text" id="login_email" class="form-control"
                                    placeholder="{% if login_name_placeholder %}{{ login_name_placeholder  }}{% else %}{{ _('jane@example.com') }}{% endif %}"
-                                   required autofocus>
+                                   required autofocus style="background-color: rgb(223, 223, 223);height: 40px;">
                    
                                
                            </div>
@@ -163,7 +116,7 @@
                            <label class="form-label sr-only" for="login_password">{{ _("Password") }}</label>
                            <div class="password-field">
                                <input type="password" id="login_password" class="form-control" placeholder="•••••"
-                                   autocomplete="current-password" required>
+                                   autocomplete="current-password" required style="background-color: rgb(223, 223, 223);height: 40px;">
                    
                                <span toggle="#login_password" class="toggle-password text-muted">{{ _('Show') }}</span>
                            </div>
@@ -180,7 +133,7 @@
                    
                    
                    <div class="page-card-actions">
-                       <button class="btn btn-sm btn-primary btn-block btn-login" type="submit">
+                       <button class="btn btn-sm btn-primary btn-block btn-login" type="submit" style="background-color:#326799; height:40px ;">
                            {{ _("Login") }}</button>
                    
                        {% if ldap_settings and ldap_settings.enabled %}
@@ -211,18 +164,19 @@
                                    {{ _("You need to enable JavaScript for your app to work.") }}<br>{{ _("To enable it follow the instructions in the following link: {0}").format("<a href='https://enable-javascript.com/'>enable-javascript.com</a></p>") }}
                            </div>
                        </noscript>
-                   
+                       
                        <section class='for-login'>
+                        <div class="container-fluid">
                            <div class="row">
-                               <div class="col-lg-5">
+                               <div class="col-lg-6">
                                    {% set doc = frappe.get_doc("Website Builder") %}
-                           <img src="{{doc.login_image}}" alt="image here" style="margin-top:-50px;" >
+                           <img src="{{doc.login_image}}" alt="image here" style="margin-top:-50px;width:1000px;height:700px;margin-left: auto;margin-right: auto;" >
                                </div>
-                               <div class="col-lg-2">
-                                </div>
+                               <div class="col-lg-1"></div>
                            
-                           <div class="col-lg-5">
-                           <div class="login-content page-card">
+                           <div class="col-lg-4">
+                            <br><br><br> <br><br><br>
+                           <div class="login-content">
                                {{ logo_section() }}
                                <form class="form-signin form-login" role="form">
                                    {%- if social_login -%}
@@ -252,13 +206,14 @@
                                </form>
                            </div>
                            {%- if not disable_signup -%}
-                           <div class="text-center sign-up-message">
+                           <div class="text-center sign-up-message" >
                                {{ _("Don't have an account?") }}
                                <a href="#signup">{{ _("Sign up") }}</a>
                            </div>
                            {%- endif -%}
                        </div>
                    </div>
+                </div>
                        </section>
                    
                    
@@ -283,15 +238,17 @@
                        
                        <section class='for-signup {{ "signup-disabled" if disable_signup else "" }}'>
                            <div class="row">
-                               <div class="col-lg-5">
+                               <div class="col-lg-6">
                                    {% set doc = frappe.get_doc("Website Builder") %}
-                           <img src="{{doc.signup_image}}" alt="image here" style="margin-top:-50px;" >
+                           <img src="{{doc.signup_image}}" alt="image here" style="margin-top:-50px;width:1000px;height:700px;margin-left: auto;margin-right: auto;"  >
                                </div>
                    
-                               <div class="col-lg-2">
+                               <div class="col-lg-1">
                             </div>
-                           <div class="col-lg-5">
-                           <div class="login-content page-card">
+                           
+                           <div class="col-lg-4">
+                            <br><br><br> <br><br><br>
+                           <div class="login-content">
                                {{ logo_section() }}
                                {%- if not disable_signup -%}
                                <form class="form-signin form-signup hide" role="form">
@@ -299,16 +256,16 @@
                                        <div class="form-group">
                                            <label class="form-label sr-only" for="signup_fullname">Full Name</label>
                                            <input type="text" id="signup_fullname" class="form-control" placeholder="{{ _('Jane Doe') }}"
-                                               required autofocus>
+                                               required autofocus  style="background-color: rgb(223, 223, 223);height: 40px;">
                                        </div>
                                        <div class="form-group">
                                            <label class="form-label sr-only" for="signup_email">Email</label>
                                            <input type="email" id="signup_email" class="form-control"
-                                               placeholder="{{ _('jane@example.com') }}" required>
+                                               placeholder="{{ _('jane@example.com') }}" required  style="background-color: rgb(223, 223, 223);height: 40px;">
                                        </div>
                                    </div>
                                    <div class="page-card-actions">
-                                       <button class="btn btn-sm btn-primary btn-block btn-signup"
+                                       <button class="btn btn-sm btn-primary btn-block btn-signup" style="background-color:#326799; height:40px;"
                                            type="submit">{{ _("Sign up") }}</button>
                    
                                        <p class="text-center sign-up-message">
@@ -334,15 +291,16 @@
                        
                        <section class='for-forgot'>
                            <div class="row">
-                               <div class="col-lg-5">
+                               <div class="col-lg-6">
                                    {% set doc = frappe.get_doc("Website Builder") %}
-                                   <img src="{{doc.forgot_image}}" alt="image here" style="margin-top:0px;" >
+                                   <img src="{{doc.forgot_image}}" alt="image here" style="margin-top:-50px;width:100%;height:700px;">
                                        
                                </div>
-                               <div class="col-lg-2">
+                               <div class="col-lg-1">
                             </div>
-                           <div class="col-lg-5">
-                           <div class="login-content page-card">
+                           <div class="col-lg-4">
+                            <br><br><br><br><br><br>
+                           <div class="login-content">
                                <form class="form-signin form-forgot hide" role="form">
                                    <div class="page-card-head">
                                        <h4>{{ _('Forgot Password') }}</h4>
@@ -350,21 +308,13 @@
                                    <div class="page-card-body">
                                        <div class="email-field">
                                            <input type="email" id="forgot_email" class="form-control"
-                                               placeholder="{{ _('Email Address') }}" required autofocus>
-                                           <svg class="field-icon email-icon" width="20" height="20" viewBox="0 0 20 20" fill="none"
-                                               xmlns="http://www.w3.org/2000/svg">
-                                               <path
-                                                   d="M2.5 7.65149V15.0757C2.5 15.4374 2.64367 15.7842 2.8994 16.04C3.15513 16.2957 3.50198 16.4394 3.86364 16.4394H16.1364C16.498 16.4394 16.8449 16.2957 17.1006 16.04C17.3563 15.7842 17.5 15.4374 17.5 15.0757V7.65149"
-                                                   stroke="#74808B" stroke-miterlimit="10" stroke-linecap="square" />
-                                               <path
-                                                   d="M17.5 7.57572V5.53026C17.5 5.1686 17.3563 4.82176 17.1006 4.56603C16.8449 4.31029 16.498 4.16663 16.1364 4.16663H3.86364C3.50198 4.16663 3.15513 4.31029 2.8994 4.56603C2.64367 4.82176 2.5 5.1686 2.5 5.53026V7.57572L10 10.8333L17.5 7.57572Z"
-                                                   stroke="#74808B" stroke-miterlimit="10" stroke-linecap="square" />
-                                           </svg>
-                   
+                                               placeholder="{{ _('Email Address') }}" required autofocus style="background-color: rgb(223, 223, 223);height: 40px;">
+                                           
                                        </div>
                                    </div>
+                                   <br>
                                    <div class="page-card-actions">
-                                       <button class="btn btn-sm btn-primary btn-block btn-forgot"
+                                       <button class="btn btn-sm btn-primary btn-block btn-forgot" style="background-color:#326799; height:40px ;"
                                            type="submit">{{ _("Reset Password") }}</button>
                                        <p class="text-center sign-up-message">
                                            <a href="#login">{{ _("Back to Login") }}</a>
@@ -383,7 +333,7 @@
                    {% endblock %}
                    
                    {% block script %}
-                   <script>{% include "templates/includes/login/login.js" %}</script>
+                   <script>{% include"templates/includes/login/login.js" %}</script>
                    {% endblock %}
                    
                    {% block sidebar %}{% endblock %}

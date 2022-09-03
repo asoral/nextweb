@@ -19,6 +19,7 @@
  ],
  "fields": [
   {
+   "description": "Image Dimensions: 900 * 440",
    "fieldname": "hero_image",
    "fieldtype": "Attach Image",
    "label": "Hero Image"
@@ -69,13 +70,14 @@
   {
    "fieldname": "site_name",
    "fieldtype": "Data",
-   "label": "Site Name"
+   "label": "Site Name",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2022-09-02 16:04:05.656453",
+ "modified": "2022-09-03 11:15:06.435678",
  "modified_by": "Administrator",
  "module": "nextwebsite",
  "name": "Website Builder",
