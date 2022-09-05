@@ -3717,7 +3717,7 @@ body .theme-btn-fourteen:hover {background: #6F6CFF;}
 /*--------------------- Fancy Hero Two --------------------*/
 .fancy-hero-two {padding: 0 70px;}
 .fancy-hero-two .bg-wrapper {
-  background: url(../images/shape/bg3.svg) no-repeat center;
+  /* background: url() no-repeat center; */
   background-size: cover;
   border-radius: 20px;
   padding: 108px 0 110px;

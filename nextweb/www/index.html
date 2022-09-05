@@ -95,35 +95,25 @@
 				   </div> <!-- /.theme-main-menu -->
 			<!-- 
 			=============================================
-				Fancy Hero Seven
+				Fancy Hero Two
 			============================================== 
 			-->
-				
-		<div class="container-fluid" style="margin-top: 80px;overflow-x:hidden;" >
 			{% set doc = frappe.get_doc("Website Builder") %}
-			<img src ="{{doc.hero_image}}" style="z-index:-1;position:absolute;height:550px;width: 1740px; margin-left:70px;margin-right:70px;overflow-x: hidden;"/>
-			<!-- <img src ="assets/nextweb/images/gallery/img_24.jpg" style="z-index:-1;position:absolute;height:700px; width:95%; margin-top:-200px; margin-left:50px;margin-right:auto;border: none;"/> -->
-		          
-				<div class="container">
-					<!-- <img src="{{doc.company_logo}}" style="margin-left: auto; margin-right:auto;" > -->
-					<div class="row">
-						
-						<!-- {% set doc = frappe.get_doc("Website Builder") %} -->
-						<div class="col-xl-8 col-lg-10 m-auto">
-							<h2 class="font-gordita" style="color:black;padding-top: 250px;padding-bottom: 50px;text-align: center;"><b> {{doc.company_name}} </b></h2>
-							<!-- <p class="font-gordita">{{doc.tagline}}</p> -->
+			<div class="fancy-hero-two" style="background:lightgray;margin:50px; height: 500px;">
+				<div class="bg-wrapper">
+					<div class="container">
+						<div class="row">
+							<div class="col-xl-8 col-lg-10 col-md-10 m-auto">
+								{% set doc = frappe.get_doc("Website Builder") %}
+								<h1 class="heading" style="text-align: center;margin:auto;padding:90px;" >{{doc.company_name}}</h1>
+							</div>
 						</div>
 					</div>
-				</div>
-			</div> 
+				</div> <!-- /.bg-wrapper -->
+			</div> <!-- /.fancy-hero-two -->
 			
-			
-			<!-- /.fancy-hero-seven -->
-			
-			<!-- <div class="container-fluid">
-				
-				<img style="width:100%;" src="assets/nextweb/images/media/img_109.png">
-			</div> -->
+
+
 			
 			
 			<!-- 
@@ -132,7 +122,7 @@
 			============================================== 
 			-->
 			
-			<div class="doc-container full-width" style="margin-top:280px;overflow-x: hidden;">
+			<div class="doc-container full-width" style="overflow-x: hidden;">
 				<div class="clearfix">
 					<div class="row flex-xl-nowrap no-gutters">
 						<!-- ****************************** DOC SIDEBAR ********************************* -->
