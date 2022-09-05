@@ -330,7 +330,7 @@ body {
 ::placeholder {color: #ACAEB3;}
 .cs-screen {position: absolute;}
 .illustration-holder {position: relative;}
-.shapes {position: absolute;z-index: -1;}
+.shapes {position: absolute;z-index:1;border-radius: 50%;}
 .dark-style {background: #0F1123; color: #AFAFAF;}
 .dark-style .h1,.dark-style h1,.dark-style .h2,.dark-style h2,.dark-style .h3,.dark-style h3,.dark-style .h4,.dark-style h4,.dark-style .h5,.dark-style h5,.dark-style .h6,.dark-style h6 {color: #fff;}
 .gr-bg-one {background: linear-gradient(90.6deg, #F548A0 2.93%, #F57C35 99.47%);}
@@ -3450,7 +3450,7 @@ body .theme-btn-fourteen:hover {background: #6F6CFF;}
   bottom:-23px;
   left: 0;
 }
-.useable-tools-section-two.bg-shape .bg-wrapper .shapes {z-index: 1;}
+.useable-tools-section-two.bg-shape .bg-wrapper .shapes {z-index: 1;border-radius: 50%;}
 .useable-tools-section-two.bg-shape .bg-wrapper .shape-one {
   width: 6px;
   height: 6px;
@@ -3516,6 +3516,7 @@ body .theme-btn-fourteen:hover {background: #6F6CFF;}
   top:60px;
   left: -35px;
   width: 40%;
+  border-radius: 50%;
 }
 .client-feedback-slider-one .shapes-holder .title-style-two {
   position: absolute;
@@ -3523,12 +3524,14 @@ body .theme-btn-fourteen:hover {background: #6F6CFF;}
   top:43%;
   transform: translateY(-50%);
   z-index: 5;
+  border-radius: 50%;
 }
 .client-feedback-slider-one .shapes-holder .shape-one {
   z-index: 1;
   top:-11%;
   right: 21%;
   animation: jumpTwo 8s infinite linear;
+  border-radius: 50%;
 }
 .client-feedback-slider-one .shapes-holder [class*="cp-img"] {
   position: absolute;
@@ -3747,7 +3750,7 @@ body .theme-btn-fourteen:hover {background: #6F6CFF;}
 .fancy-text-block-nine .shape-one {
   width: 10px;
   height: 10px;
-  background: #FFDBD0;
+  background: #ff5926;
   top:5%;
   right: 13%;
   animation: jumpTwo 5s infinite linear;
@@ -3755,7 +3758,7 @@ body .theme-btn-fourteen:hover {background: #6F6CFF;}
 .fancy-text-block-nine .shape-two {
   width: 6px;
   height: 6px;
-  background: #F77A56;
+  background: #ff5926;
   bottom:9%;
   right: 13%;
   animation: jumpThree 5s infinite linear;
@@ -3763,7 +3766,7 @@ body .theme-btn-fourteen:hover {background: #6F6CFF;}
 .fancy-text-block-nine .shape-three {
   width: 8px;
   height: 8px;
-  background: #FFDBD0;
+  background: #ff5926;
   bottom:9%;
   left: 13%;
   animation: jumpTwo 5s infinite linear;
@@ -3771,7 +3774,7 @@ body .theme-btn-fourteen:hover {background: #6F6CFF;}
 .fancy-text-block-nine .shape-four {
   width: 11px;
   height: 11px;
-  background: #FF7052;
+  background: #29c303;
   top:12%;
   left: 13%;
   animation: jumpThree 5s infinite linear;
