@@ -75,7 +75,7 @@
 /*Menu One*/
 .theme-menu-one .navbar .navbar-toggler {background: var(--blue-dark);}
 /*Menu Two*/
-.theme-menu-two .navbar .navbar-toggler {background: var(--red-light);}
+ .theme-menu-two .navbar .navbar-toggler {background: var( --heading)}
 /*Menu Four*/
 .theme-menu-four .navbar .navbar-toggler {background: var(--vin-red);}
 .navbar .navbar-nav {font-family: 'Rubik', sans-serif;}
@@ -164,7 +164,7 @@
 .theme-menu-two .navbar-nav .nav-item.active .nav-link,
 .theme-menu-two .navbar-nav .nav-item:hover>.nav-link,
 .theme-menu-two .navbar .dropdown-menu .dropdown-item:hover,
-.theme-menu-two .navbar .dropdown-menu .dropdown-item.active {color: var(--red-light);}
+.theme-menu-two .navbar .dropdown-menu .dropdown-item.active {color: var(--text-color);}
 /*Menu Three*/
 .theme-menu-three .navbar-nav .nav-item.active .dropdown-toggle:after,
 .theme-menu-three .navbar-nav .nav-item:hover>.dropdown-toggle:after,

@@ -2909,17 +2909,17 @@ body .theme-btn-fourteen:hover {background: #6F6CFF;}
   color: #000;
   transition: all 0.3s ease-in-out;
 }
-.theme-menu-two .user-login-button li a:hover {color: var(--red-light);}
+.theme-menu-two .user-login-button li a:hover {color:gray;}
 .theme-menu-two .user-login-button li .signUp-action {
-  border:1px solid rgba(255,122,81,0.4);
-  background: rgba(255,104,40,0.07);
+  border:1px solid #326799;
+  background: #326799;
   padding: 0 45px;
   border-radius: 22px;
-  color: var(--red-light);
+  color: gray;
   margin-left: 25px;
 }
 .theme-menu-two .user-login-button li .signUp-action:hover {
-  background: var(--red-light);
+  background: #326799;
   color: #fff;
 }
 .theme-menu-two .language-button-group li a {

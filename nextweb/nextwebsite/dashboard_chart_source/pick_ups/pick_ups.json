@@ -1,0 +1,13 @@
+{
+ "creation": "2022-09-13 12:11:52.105153",
+ "docstatus": 0,
+ "doctype": "Dashboard Chart Source",
+ "idx": 0,
+ "modified": "2022-09-13 12:11:52.105153",
+ "modified_by": "Administrator",
+ "module": "nextwebsite",
+ "name": "Pick Ups",
+ "owner": "Administrator",
+ "source_name": "Pick Ups",
+ "timeseries": 0
+}

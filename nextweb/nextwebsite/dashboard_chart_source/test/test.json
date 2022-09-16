@@ -1,0 +1,13 @@
+{
+ "creation": "2022-09-13 12:11:14.139626",
+ "docstatus": 0,
+ "doctype": "Dashboard Chart Source",
+ "idx": 0,
+ "modified": "2022-09-13 12:11:14.139626",
+ "modified_by": "Administrator",
+ "module": "nextwebsite",
+ "name": "test",
+ "owner": "Administrator",
+ "source_name": "test",
+ "timeseries": 0
+}

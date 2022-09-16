@@ -851,7 +851,7 @@
     padding: 30px 15px 10px;
     max-height: calc(100vh - 79px);
   }
-  .doc-sidebar {border: none; background: #f5f5f5; top: 78px; padding: 10px 0 !important; z-index: 9;}
+  .doc-sidebar {border: none;top: 78px; padding: 10px 0 !important; z-index: 9;}
   .doc-container.full-width {padding: 0;}
   .doc-sidebar .btn {color: #fff; background: #2a2a2a;margin:0 15px;padding: 2px 5px;}
   .doc-container.full-width .doc-main-body {padding: 50px 15px 30px;}

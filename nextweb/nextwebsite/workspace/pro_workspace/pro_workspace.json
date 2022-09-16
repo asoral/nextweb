@@ -1,0 +1,33 @@
+{
+ "category": "Modules",
+ "charts": [],
+ "creation": "2022-09-13 17:54:04.698546",
+ "developer_mode_only": 0,
+ "disable_user_customization": 0,
+ "docstatus": 0,
+ "doctype": "Workspace",
+ "extends_another_page": 0,
+ "hide_custom": 0,
+ "idx": 0,
+ "is_default": 0,
+ "is_standard": 1,
+ "label": "pro workspace",
+ "links": [],
+ "modified": "2022-09-13 17:54:04.698546",
+ "modified_by": "Administrator",
+ "module": "nextwebsite",
+ "name": "pro workspace",
+ "onboarding": "",
+ "owner": "Administrator",
+ "pin_to_bottom": 0,
+ "pin_to_top": 0,
+ "shortcuts": [
+  {
+   "doc_view": "",
+   "label": "About Us Settings",
+   "link_to": "About Us Settings",
+   "type": "DocType"
+  }
+ ],
+ "shortcuts_label": "shortcuts"
+}
