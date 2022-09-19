@@ -7,6 +7,7 @@
  "engine": "InnoDB",
  "field_order": [
   "company_logo",
+  "hero_image",
   "company_name",
   "tagline",
   "description",
@@ -65,12 +66,17 @@
    "fieldtype": "Data",
    "label": "Site Name",
    "read_only": 1
+  },
+  {
+   "fieldname": "hero_image",
+   "fieldtype": "Attach Image",
+   "label": "Hero_Image"
   }
  ],
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2022-09-06 07:44:46.531563",
+ "modified": "2022-09-17 11:35:14.478840",
  "modified_by": "Administrator",
  "module": "nextwebsite",
  "name": "Website Builder",
