@@ -18,7 +18,66 @@
 		<link rel="stylesheet" type="text/css" href="assets/nextweb/css/responsive.css">
 	</head>
 	<body>
+		
 		<div class="main-page-wrapper p0">
+			<div class="theme-main-menu sticky-menu theme-menu-two" style="position:absolute;border-bottom:1px solid black;padding:5px;">
+				
+				<div class="d-flex align-items-center justify-content-center">
+					{% set doc = frappe.get_doc("Website Builder") %}
+					<div class="logo"><a href="index.html"><img src="{{doc.company_logo}}" alt=""></a></div>
+
+					<nav id="mega-menu-holder" class="navbar navbar-expand-lg">
+						<div  class="nav-container">
+							<button class="navbar-toggler" style="background-color: black;" >
+						        <span></span>
+						    </button>
+						   <div class="navbar-collapse collapse" id="navbarSupportedContent">
+						   		<div class="d-lg-flex justify-content-between align-items-center">
+						   			<ul class="navbar-nav">
+								        <li class="nav-item dropdown">
+								            <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" style="color:#326799;"><b>BUY EQUIPMENTS</b></a>
+								            <ul class="dropdown-menu">
+									            <li>
+									            	<a href="#" class="dropdown-item">Product 1</a>
+									            </li>
+									            <li>
+									            	<a href="#" class="dropdown-item">Product 2</a>
+									            </li>
+									            <li>
+									            	<a href="#" class="dropdown-item">Product 3</a>
+									            </li>
+									            <li>
+									            	<a href="#" class="dropdown-item">Product 4</a>
+									            </li>
+									            
+								            </ul> <!-- /.dropdown-menu -->
+								        </li>
+						
+								        <li class="nav-item dropdown">
+								            <a class="nav-link " href="#" style="color:#326799;"><b>OUR PLATFORMS</b></a>
+								        </li>
+								    </ul>
+
+									<ul class="right-widget">
+										<li class="d-sm-flex">
+											
+											<ul class="user-login-button d-flex align-items-center justify-content-center">
+												<li>
+													<a href="custom_login.html" style="background-color:#326799;color:white;" class="signUp-action">LOGIN</a>
+												</li>
+												<li>
+													<a href="custom_login#signup.html" style="background-color:#326799;color:white;" class="signUp-action">SIGN UP</a>
+												</li>
+											</ul>
+										</li>
+									</ul>
+						   		</div>
+						   	</div>
+						</div> 
+					</nav>
+				</div>
+			</div> <!-- /.theme-main-menu -->
+			
 			<!-- 
 			=============================================
 				Fancy Hero Two

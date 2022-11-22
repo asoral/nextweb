@@ -36,16 +36,16 @@ app_license = "MIT"
 # doctype_tree_js = {"doctype" : "public/js/doctype_tree.js"}
 # doctype_calendar_js = {"doctype" : "public/js/doctype_calendar.js"}
 
-# Home Pages
+#Home Pages
 # ----------
 
 # application home page (will override Website Settings)
-# home_page = "index"
+home_page = "index"
 
 # website user home page (by Role)
-# # role_home_page = {
-# 	"Role": "home_page"
-# # }
+role_home_page = {
+	"Role": "index"
+}
 
 # Generators
 # ----------
